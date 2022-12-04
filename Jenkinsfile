@@ -30,7 +30,7 @@ pipeline {
 
         stage('Tag docker image') {
             steps {
-                sh 'docker image tag webapp-ucreativa scdel7/java-webapp:latest'
+                sh 'docker image tag webapp-ucreativa scdel7/webapp-ucreativa:latest'
             }
         }
 
