@@ -36,7 +36,7 @@ pipeline {
 
         stage('Upload docker image') {
             steps {
-                sh 'docker login -u korinrovira -p &t33lD00r928+'
+                sh 'docker login -u korinrovira -p test'
                 sh 'docker image push korinrovira/java-webapp:latest'
             }
         }
