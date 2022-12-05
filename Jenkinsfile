@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'nodo-1'
+        label 'qa-worker'
     }
 
     stages {
@@ -30,17 +30,15 @@ pipeline {
 
         stage('Tag docker image') {
             steps {
-                sh 'docker image tag java-webapp korinrovira/java-webapp:latest'
+                sh 'docker image tag java-webapp betillo/java-webapp:latest'
             }
         }
 
         stage('Upload docker image') {
             steps {
-                sh 'docker login -u korinrovira -p &t33lD00r928+'
-                sh 'docker image push korinrovira/java-webapp:latest'
+                sh 'docker login -u betillo -p Guitarra123.'
+                sh 'docker image push betillo/webapp-test:latest'
             }
         }
     }
 }
-
-
