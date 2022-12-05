@@ -39,6 +39,7 @@ pipeline {
                 sh 'docker login -u korinrovira -p test'
                 sh 'docker image push korinrovira/java-webapp:latest'
             }
-        }
-    }
+        }
+    }
 }
+
