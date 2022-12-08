@@ -37,7 +37,7 @@ pipeline {
         stage('Upload docker image') {
             steps {
                 withCredentials([string(credentialsId: 'docker-id', variable: 'dockerpwd')]) {
-   sh 'docker login -u korinrovira -p ${dockerpwd} '
+   sh 'docker login -u scdel7 -p ${dockerpwd} '
                 sh 'docker image push scdel7/webapp-ucreativa:latest'
 }
                 
