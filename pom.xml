@@ -52,6 +52,7 @@
 			</plugin>
 
 		</plugins>
+		<finalName>service</finalName>
 	</build>
 
 </project>
