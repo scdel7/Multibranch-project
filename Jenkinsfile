@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'nodo-1'
+        label: 'worker-dev'
     }
 
     stages {
@@ -36,10 +36,9 @@ pipeline {
 
         stage('Upload docker image') {
             steps {
-                sh 'docker login -u korinrovira -p test'
+                withCredentials([string(credentialsId: 'docker-id', variable: 'dockerpwd')]) {
+                  sh 'docker login -u korinrovira -p ${dockerpwd}'
                 sh 'docker image push korinrovira/java-webapp:latest'
             }
         }
     }
-}
-
