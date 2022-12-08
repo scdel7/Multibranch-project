@@ -24,21 +24,24 @@ pipeline {
 
         stage('Build docker image') {
             steps {
-                sh 'docker image build -t java-webapp .'
+                sh 'docker image build -t webapp-ucreativa .'
             }
         }
 
         stage('Tag docker image') {
             steps {
-                sh 'docker image tag java-webapp korinrovira/java-webapp:latest'
+                sh 'docker image tag webapp-ucreativa scdel7/webapp-ucreativa:latest'
             }
         }
 
         stage('Upload docker image') {
             steps {
                 withCredentials([string(credentialsId: 'docker-id', variable: 'dockerpwd')]) {
-                  sh 'docker login -u korinrovira -p ${dockerpwd}'
-                sh 'docker image push korinrovira/java-webapp:latest'
+   sh 'docker login -u korinrovira -p ${dockerpwd} '
+                sh 'docker image push scdel7/webapp-ucreativa:latest'
+}
+                
             }
         }
     }
+}
